@@ -1,0 +1,517 @@
+body {
+    margin: 0;
+}
+
+p,
+blockquote {
+    font-size: .8em;
+    line-height: 1.6em;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    padding-top: 0.5rem;
+}
+
+.fa-bars {
+    padding-top: 0.9rem;
+}
+
+.service-icon {
+    width: 50px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hide-mobile {
+    display: none;
+}
+
+.exit-btn {
+    margin-bottom: 1em;
+    margin-top: 1.3em;
+    text-align: right;
+    padding: 0 1.4em;
+}
+
+.exit-btn img {
+    width: 65px;
+    cursor: pointer;
+}
+
+nav ul {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    text-align: left;
+    background: rgb(36, 41, 44);
+    height: 100%;
+    z-index: 7;
+    padding-top: 3em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    padding: 1em 2em;
+    background-color: rgb(49, 55, 59);
+}
+
+nav ul li a:hover {
+    background-color: rgb(65, 73, 78);
+}
+
+.img_bg {
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    background-position: center center;
+    background-attachment: scroll;
+}
+
+.img_bg>.container>.row {
+    min-height: 700px;
+    height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Playfair Display", serif;
+}
+
+.tp-heading {
+    color: white;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+.btn {
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.btn.btn-primary.btn-outline-primary {
+    border-width: 2px;
+    cursor: pointer;
+}
+
+.btn.btn-outline-white {
+    border: 2px solid #fff;
+    background: none;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn.btn-outline-white:hover {
+    background: #fff;
+    color: #000;
+    border: 2px solid transparent;
+}
+
+.section-gap-top {
+    padding-top: 60px;
+}
+
+.mySlides {
+    display: none;
+}
+
+.slideshow img {
+    margin: 0 auto;
+    width: 100%;
+    width: 200px;
+    height: 150px;
+}
+
+.tab {
+    margin-bottom: 80px !important;
+    display: flex;
+    overflow: hidden;
+    margin-left: 18px;
+}
+
+.tabpanel {
+    display: none;
+}
+
+.tablink {
+    background-color: white;
+    border: 2px solid rgb(34, 33, 33);
+    color: black;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    height: 50px;
+    width: 100px;
+}
+
+.tablink:hover {
+    background-color: rgb(34, 33, 33);
+    color: white;
+}
+
+.menu-food-item {
+    border-bottom: 1px dotted #cccccc;
+    float: left;
+    width: 100%;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.menu-food-item .text {
+    width: calc(100%);
+}
+
+.menu-food-item .text img {
+    width: 100px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    float: left;
+    margin-right: 30px;
+}
+
+.menu-food-item .price {
+    text-align: left;
+    width: 100%;
+}
+
+.menu-food-item .price strong {
+    color: #ff7a5c;
+    font-size: 20px;
+}
+
+.menu-food-item h3 {
+    font-size: 22px;
+}
+
+.menu-food-item h3 a {
+    color: #000;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+}
+
+.menu-food-item h3 a:hover {
+    color: gray;
+}
+
+.menu-food-item p:last-child {
+    margin-bottom: 0;
+}
+
+.customer-img img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.comment-p {
+    font-size: 12px;
+}
+
+.comment-slideshow {
+    margin: auto;
+    position: relative;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot:hover,
+.dot.active {
+    background-color: #717171;
+}
+
+footer {
+    align-items: right;
+}
+
+.footer-container {
+    width: 100;
+    background: rgb(26, 25, 25);
+    color: white;
+    padding: 60px 0;
+    font-size: 15px;
+}
+
+.footer-container.container.button {
+    background: rgb(77, 77, 75);
+    width: calc(100% - 35em);
+    display: block;
+    color: white;
+    border-radius: 20px;
+    padding: .5em;
+    text-decoration: none;
+    font-size: .5em;
+    margin: 1% auto 4%;
+    position: relative;
+}
+
+.footer-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.footer-widget {
+    padding-left: 0;
+    list-style: none;
+}
+
+.footer-container .footer-widget li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 13px;
+}
+
+.instagram-pic {
+    width: 75px;
+    height: 75px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #000;
+}
+
+.form-wrap {
+    padding: 40px;
+    background: #fff;
+    -webkit-box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn-primary {
+    background: #000000;
+    border: 1px solid #000000;
+    color: #fff;
+}
+
+.btn.btn-primary:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.staff .chef-img {
+    height: 320px;
+    width: 280px;
+    background-position: top center;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.headchef-img {
+    height: 500px;
+}
+
+.aboutFood-img {
+    height: 200px;
+}
+
+.employee-social {
+    display: flex;
+    margin-top: 15px;
+}
+
+.employee-social li {
+    list-style: none;
+    margin-right: 10px;
+}
+
+@media only screen and (min-width: 500 px) {}
+
+@media only screen and (min-width: 768px) {
+    .tp-heading {
+        font-size: 70px;
+        font-weight: 900;
+        line-height: 1.2;
+    }
+
+    .col-md-8 {
+        -webkit-box-flex: 0;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+
+    .menu-food-item .text {
+        width: calc(100% - 70px)
+    }
+
+    .menu-food-item .price {
+        width: 70px;
+        text-align: right;
+    }
+
+    .headchef-img {
+        height: 700px;
+        width: 500px;
+    }
+
+    .aboutFood-img {
+        height: 500px;
+    }
+
+    .tab {
+        margin-left: 30px;
+    }
+
+    .tablink {
+        font-size: 15px;
+        height: 50px;
+        width: 130px;
+    }
+
+    .slideshow img {
+        height: 250px;
+    }
+
+    .comment-p {
+        font-size: 12.5px;
+    }
+}
+
+@media only screen and (min-width: 991px) {
+    .section-gap-top {
+        padding-top: 120px;
+    }
+
+    .footer-container {
+        padding: 60px 0;
+    }
+
+    .menu-food-item .text img {
+        float: none;
+    }
+
+    .staff .chef-img {
+        height: 320px;
+        width: 235px;
+    }
+
+    .tab {
+        margin-left: 103px;
+    }
+
+    .tablink {
+        font-size: 16px;
+        height: 50px;
+        width: 135px;
+    }
+
+    .slideshow img {
+        height: 350px;
+    }
+
+    .comment-p {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .show-desktop {
+        display: block;
+        margin: 0 auto 13% auto;
+    }
+
+    .hide-desktop {
+        display: none;
+    }
+
+    nav ul {
+        position: inherit;
+        width: auto;
+        background: none;
+        height: auto;
+        display: flex;
+        padding-top: 0;
+    }
+
+    nav ul li {
+        float: left;
+    }
+
+    nav ul li a {
+        color: black;
+        background-color: inherit;
+        text-align: right;
+        padding: 1em 2em;
+    }
+
+    nav ul li a:hover {
+        background-color: none;
+        color: white;
+    }
+
+    .tab {
+        margin-left: 120px;
+    }
+
+    .tablink {
+        height: 60px;
+        width: 170px;
+        font-size: 17px;
+    }
+
+    .slideshow img {
+        height: 450px;
+    }
+
+    .comment-p {
+        font-size: 17 px;
+    }
+}
+
+@media only screen and (min-width: 1600px) {}

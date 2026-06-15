@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+    <link rel="stylesheet" th:href="@{/css/availability-calendar.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a th:href="@{/}">
+                <img th:src="@{/images/logo.svg}" alt="logo" class="logo">
+            </a>
+            <nav>
+                <a href="#" class="hide-desktop">
+                    <i class="fa fa-bars fa-2x" id="menu" style="color: #000;"> </i>
+                </a>
+                <ul class="show-desktop" id="nav">
+                    <li id="exit" class="exit-btn hide-desktop">
+                        <i class="fa fa-bars fa-lg" style="color: white;"></i>
+                    </li>
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/staff}">Staffs</a></li>
+                    <li><a th:href="@{/menu}">Menu</a></li>
+                    <li><a th:href="@{/about}">About</a></li>
+                    <li><a th:href="@{/contact}">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <section class="section-gap-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="offset-lg-1 col-lg-6 col-md-6">
+                    <div>
+                        <img th:src="@{/images/food1.jpg}" alt="food-image" class="aboutFood-img">
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6">
+                    <div>
+                        <h1 class="mb-4">About</h1>
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span><img th:src="@{/images/logo.svg}" alt="logo" class="about-logo" width="100"></span>
+                        </div>
+                        <p>Our kitchen is not a list of ingredients or demonstration of technical abilities. It is a
+                            narration of the landscape and our passions. Cooking is a collision of ideas, techniques,
+                            and cultures. It is not mathematical. It is emotional.</p>
+                        <p>
+                            <span>Mon - Sun <strong><br>8 AM - 11:30 PM</strong></span>
+                            <span><br>+82 1360 8098 047</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="ftco-section bg-light">
+        <div class="section-gap-top">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-2">
+                    <div class="col-md-12 text-center heading-section ftco-animate">
+                        <h2 class="mb-4">Special Services</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 d-flex align-self-stretch ftco-animate text-center">
+                        <div class="media block-6 services d-block">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span><img th:src="@{/images/birthday.svg}" alt="service-icon"
+                                        class="service-icon"></span>
+                            </div>
+                            <div class="media-body p-2 mt-3">
+                                <h3 class="heading">Birthday Party</h3>
+                                <p>We turn not older with years but newer every day. And in the end, it's not the years
+                                    in your life that count. It's the life in your years.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-self-stretch ftco-animate text-center">
+                        <div class="media block-6 services d-block">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span><img th:src="@{/images/alcohol.svg}" alt="service-icon"
+                                        class="service-icon"></span>
+                            </div>
+                            <div class="media-body p-2 mt-3">
+                                <h3 class="heading">Business Party</h3>
+                                <p>I believe that if life gives you lemons, you should make lemonade... And try to find
+                                    somebody whose life has given them vodka, and have a party.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-self-stretch ftco-animate text-center">
+                        <div class="media block-6 services d-block">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span><img th:src="@{/images/wedding-arch.svg}" alt="service-icon"
+                                        class="service-icon"></span>
+                            </div>
+                            <div class="media-body p-2 mt-3">
+                                <h3 class="heading">Wedding Party</h3>
+                                <p>You know you're in love when you can't fall asleep because reality is finally better
+                                    than your dreams.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="section-gap-top bg-white services-section">
+        <div class="container">
+            <div class="row section-heading justify-content-center mb-5">
+                <div class="col-md-8 text-center">
+                    <h2 class="heading mb-4">Other Services</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-m mb-5d-6 col-lg-4">
+                    <div class="media feature-icon d-block text-center">
+                        <div>
+                            <span><img th:src="@{/images/cusine.svg}" alt="service-icon" class="service-icon"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Cuisine</h3>
+                            <p>We must have a pie. Stress cannot exist in the presence of a pie.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="media feature-icon d-block text-center">
+                        <div>
+                            <span><img th:src="@{/images/fresh.svg}" alt="service-icon" class="service-icon"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Fresh</h3>
+                            <p>After a good dinner one can forgive anybody, even one's own relations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="media feature-icon d-block text-center">
+                        <div>
+                            <span><img th:src="@{/images/breakfast.svg}" alt="service-icon" class="service-icon"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Bread</h3>
+                            <p>One cannot think well, love well, sleep well, if one has not dined well.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="media feature-icon d-block text-center">
+                        <div>
+                            <span><img th:src="@{/images/quality.svg}" alt="service-icon" class="service-icon"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Quality</h3>
+                            <p>If more of us valued food and cheer and song above hoarded gold, it would be a merrier
+                                world.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="media feature-icon d-block text-center">
+                        <div>
+                            <span><img th:src="@{/images/desert.svg}" alt="service-icon" class="service-icon"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Variety Deserts</h3>
+                            <p>All you need is love. But a little chocolate now and then doesn't hurt.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="media feature-icon d-block text-center">
+                        <div>
+                            <span><img th:src="@{/images/chicken.svg}" alt="service-icon" class="service-icon"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Chicken</h3>
+                            <p>Part of the secret of success in life is to eat what you like and let the food fight it
+                                out inside.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-md-6 col-lg-3">
+                        <h3 class="mb-4">Lovely Facts:</h3>
+                        <p>"There is no love sincerer than the love of food." </p>
+                        <p>"Humor keeps us alive. Humor and food. Don't forget food. You can go a week without
+                            laughing."</p>
+                        <ul class="footer-widget">
+                            <li><a href="#"><i class="fab fa-facebook-f fa-lg" style="color:white"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram fa-lg" style="color:white"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter fa-lg" style="color:white"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <h3 class="mb-4">Opening Hours</h3>
+                        <span>Everyday</span>
+                        <span>8:00 - 23:30</span>
+                        <ul>
+                            <li>
+                                <h4>Lunch</h4>
+                                <span>11:00 - 1:30</span>
+                            </li>
+                            <li>
+                                <h4>Dinner</h4>
+                                <span>7:30 - 10:00</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <h3 class="mb-4">Instagram</h3>
+                        <div class="footer-insta">
+                            <a href="#"><img th:src="@{/images/instagram/insta-1.jpg}" alt="instagram-pic"
+                                    class="instagram-pic"></a>
+                            <a href="#"><img th:src="@{/images/instagram/insta-2.jpg}" alt="instagram-pic"
+                                    class="instagram-pic"></a>
+                            <a href="#"><img th:src="@{/images/instagram/insta-3.jpg}" alt="instagram-pic"
+                                    class="instagram-pic"></a>
+                        </div>
+                        <div class="footer-insta">
+                            <a href="#"><img th:src="@{/images/instagram/insta-4.jpg}" alt="instagram-pic"
+                                    class="instagram-pic"></a>
+                            <a href="#"><img th:src="@{/images/instagram/insta-5.jpg}" alt="instagram-pic"
+                                    class="instagram-pic"></a>
+                            <a href="#"><img th:src="@{/images/instagram/insta-6.jpg}" alt="instagram-pic"
+                                    class="instagram-pic"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <h3 class="mb-4">Newsletter</h3>
+                        <p>Stay in touch with us</p>
+                        <form th:action="@{/subscribe}" method="POST" class="subscribe-form">
+                            <div class="form-group">
+                                <input type="text" name="email" class="form-control mb-2 text-center"
+                                    placeholder="Enter email address">
+                                <input type="submit" value="Subscribe" class="form-control submit px-3">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script th:src="@{/js/availability-calendar.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>

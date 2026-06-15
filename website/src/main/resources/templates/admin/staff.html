@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Staff | FlyHigh Restaurant</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 bg-dark text-white p-3" style="min-height: 100vh;">
+                <h4 class="mb-4">Admin Panel</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/admin}"><i
+                                class="fa fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/admin/menu}"><i
+                                class="fa fa-utensils"></i> Menu Items</a></li>
+                    <li class="nav-item"><a class="nav-link text-white font-weight-bold" th:href="@{/admin/staff}"><i
+                                class="fa fa-users"></i> Staff</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/admin/reservations}"><i
+                                class="fa fa-calendar-check"></i> Reservations</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/admin/messages}"><i
+                                class="fa fa-envelope"></i> Messages</a></li>
+                    <li class="nav-item mt-4"><a class="nav-link text-white-50" th:href="@{/}"><i
+                                class="fa fa-arrow-left"></i> Back to Site</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger" th:href="@{/admin/logout}"><i
+                                class="fa fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+            <div class="col-md-10 p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Staff Members</h2>
+                    <a th:href="@{/admin/staff/add}" class="btn btn-primary"><i class="fa fa-plus"></i> Add New
+                        Staff</a>
+                </div>
+                <div th:if="${success}" class="alert alert-success alert-dismissible fade show">
+                    <span th:text="${success}"></span>
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                </div>
+                <div th:if="${error}" class="alert alert-danger alert-dismissible fade show">
+                    <span th:text="${error}"></span>
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                </div>
+                <h4 class="mb-3">Chefs</h4>
+                <table class="table table-striped mb-5">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Type</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="emp : ${chefs}">
+                            <td th:text="${emp.id}">1</td>
+                            <td><img th:src="@{'/images/' + ${emp.imagePath}}" alt="staff"
+                                    style="width:60px;height:60px;object-fit:cover;"
+                                    class="img-thumbnail rounded-circle"></td>
+                            <td th:text="${emp.name}">Name</td>
+                            <td th:text="${emp.role}">Role</td>
+                            <td><span class="badge badge-info">Chef</span></td>
+                            <td>
+                                <a th:href="@{'/admin/staff/edit/' + ${emp.id}}" class="btn btn-sm btn-warning"><i
+                                        class="fa fa-edit"></i></a>
+                                <a th:href="@{'/admin/staff/delete/' + ${emp.id}}" class="btn btn-sm btn-danger"
+                                    onclick="return confirm('Delete this staff member?')"><i
+                                        class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(chefs)}">
+                            <td colspan="6" class="text-center">No chefs found.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 class="mb-3">Other Staff</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Type</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="emp : ${others}">
+                            <td th:text="${emp.id}">1</td>
+                            <td><img th:src="@{'/images/' + ${emp.imagePath}}" alt="staff"
+                                    style="width:60px;height:60px;object-fit:cover;"
+                                    class="img-thumbnail rounded-circle"></td>
+                            <td th:text="${emp.name}">Name</td>
+                            <td th:text="${emp.role}">Role</td>
+                            <td><span class="badge badge-secondary">Other</span></td>
+                            <td>
+                                <a th:href="@{'/admin/staff/edit/' + ${emp.id}}" class="btn btn-sm btn-warning"><i
+                                        class="fa fa-edit"></i></a>
+                                <a th:href="@{'/admin/staff/delete/' + ${emp.id}}" class="btn btn-sm btn-danger"
+                                    onclick="return confirm('Delete this staff member?')"><i
+                                        class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(others)}">
+                            <td colspan="6" class="text-center">No other staff found.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

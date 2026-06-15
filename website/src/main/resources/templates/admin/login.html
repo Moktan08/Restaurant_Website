@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | FlyHigh Restaurant</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-card h2 {
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
+        }
+
+        .login-card .form-control {
+            border-radius: 5px;
+            padding: 12px;
+        }
+
+        .login-card .btn-primary {
+            border-radius: 5px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .login-card .alert {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-card">
+        <h2><i class="fa fa-lock"></i> Admin Login</h2>
+        <div th:if="${param.error}" class="alert alert-danger">
+            <i class="fa fa-exclamation-circle"></i> Invalid username or password.
+        </div>
+        <div th:if="${param.logout}" class="alert alert-info">
+            <i class="fa fa-check-circle"></i> You have been logged out.
+        </div>
+        <form th:action="@{/admin/login}" method="post">
+            <div class="form-group">
+                <label for="username"><i class="fa fa-user"></i> Username</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter username"
+                    required autofocus>
+            </div>
+            <div class="form-group">
+                <label for="password"><i class="fa fa-key"></i> Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter password"
+                    required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in-alt"></i> Login</button>
+        </form>
+        <div class="text-center mt-3">
+            <a th:href="@{/}" class="text-muted"><i class="fa fa-arrow-left"></i> Back to Website</a>
+        </div>
+    </div>
+</body>
+
+</html>
