@@ -1,43 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:if="${employee.id != null}">Edit Staff | Admin</title>
-    <title th:unless="${employee.id != null}">Add Staff | Admin</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
+<head th:replace="~{fragments/admin-head :: head('Staff Form | Admin')}"></head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 bg-dark text-white p-3" style="min-height: 100vh;">
-                <h4 class="mb-4">Admin Panel</h4>
-                <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/admin}"><i
-                                class="fa fa-tachometer-alt"></i> Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/admin/menu}"><i
-                                class="fa fa-utensils"></i> Menu Items</a></li>
-                    <li class="nav-item"><a class="nav-link text-white font-weight-bold" th:href="@{/admin/staff}"><i
-                                class="fa fa-users"></i> Staff</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/admin/reservations}"><i
-                                class="fa fa-calendar-check"></i> Reservations</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/admin/messages}"><i
-                                class="fa fa-envelope"></i> Messages</a></li>
-                    <li class="nav-item mt-4"><a class="nav-link text-white-50" th:href="@{/}"><i
-                                class="fa fa-arrow-left"></i> Back to Site</a></li>
-                    <li class="nav-item"><a class="nav-link text-danger" th:href="@{/admin/logout}"><i
-                                class="fa fa-sign-out-alt"></i> Logout</a></li>
-                </ul>
-            </div>
-            <div class="col-md-10 p-4">
-                <a th:href="@{/admin/staff}" class="btn btn-outline-secondary mb-3"><i class="fa fa-arrow-left"></i>
-                    Back to Staff</a>
-                <h2 th:if="${employee.id != null}">Edit Staff Member</h2>
-                <h2 th:unless="${employee.id != null}">Add New Staff Member</h2>
-                <div class="card mt-3">
+    <div class="admin-layout">
+        <div th:replace="~{fragments/admin-sidebar :: sidebar('staff')}"></div>
+        <div class="admin-content">
+            <div class="content-wrapper">
+                <a th:href="@{/admin/staff}" class="btn btn-outline-secondary mb-3 back-link"><i
+                        class="fa fa-arrow-left"></i> Back to Staff</a>
+                <div class="page-header">
+                    <h2 th:if="${employee.id != null}"><i class="fa fa-edit"></i> Edit Staff Member</h2>
+                    <h2 th:unless="${employee.id != null}"><i class="fa fa-user-plus"></i> Add New Staff Member
+                    </h2>
+                </div>
+                <div class="card form-card mt-3">
                     <div class="card-body">
                         <form
                             th:action="${employee.id != null} ? @{'/admin/staff/edit/' + ${employee.id}} : @{/admin/staff/add}"
@@ -59,9 +37,11 @@
                                 <div class="form-group col-md-6">
                                     <label for="employeeType">Type *</label>
                                     <select id="employeeType" name="employeeType" class="form-control" required>
-                                        <option value="chef" th:selected="${employee.employeeType == 'chef'}">Chef
+                                        <option value="chef" th:selected="${employee.employeeType == 'chef'}">
+                                            Chef
                                         </option>
-                                        <option value="other" th:selected="${employee.employeeType == 'other'}">Other
+                                        <option value="other" th:selected="${employee.employeeType == 'other'}">
+                                            Other
                                             Staff</option>
                                     </select>
                                 </div>
@@ -71,7 +51,9 @@
                                         th:unless="${employee.id != null}" required>
                                     <input type="file" id="imageFile" name="imageFile" class="form-control-file"
                                         th:if="${employee.id != null}">
-                                    <small class="form-text text-muted" th:if="${employee.id != null}">Leave empty to
+                                    <small class="form-text text-muted" th:if="${employee.id != null}">Leave
+                                        empty
+                                        to
                                         keep current image.</small>
                                     <div th:if="${employee.imagePath != null}" class="mt-2">
                                         <img th:src="@{'/images/' + ${employee.imagePath}}" alt="current"
@@ -85,22 +67,29 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="facebookUrl">Facebook URL</label>
+                                    <label for="facebookUrl"><i class="fab fa-facebook text-primary"></i>
+                                        Facebook
+                                        URL</label>
                                     <input type="url" id="facebookUrl" name="facebookUrl" class="form-control"
                                         th:value="${employee.facebookUrl}" placeholder="https://facebook.com/...">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="instagramUrl">Instagram URL</label>
+                                    <label for="instagramUrl"><i class="fab fa-instagram text-danger"></i>
+                                        Instagram
+                                        URL</label>
                                     <input type="url" id="instagramUrl" name="instagramUrl" class="form-control"
                                         th:value="${employee.instagramUrl}" placeholder="https://instagram.com/...">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="twitterUrl">Twitter URL</label>
+                                    <label for="twitterUrl"><i class="fab fa-twitter text-info"></i> Twitter
+                                        URL</label>
                                     <input type="url" id="twitterUrl" name="twitterUrl" class="form-control"
                                         th:value="${employee.twitterUrl}" placeholder="https://twitter.com/...">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>
+                                Save</button>
+                            <a th:href="@{/admin/staff}" class="btn btn-secondary">Cancel</a>
                         </form>
                     </div>
                 </div>

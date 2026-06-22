@@ -1,100 +1,58 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - FlyHigh Restaurant</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
+<head th:replace="~{fragments/admin-head :: head('Admin Dashboard - FlyHigh Restaurant')}"></head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-2 bg-dark text-white p-3" style="min-height: 100vh;">
-                <h4 class="mb-4">Admin Panel</h4>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" th:href="@{/admin}">
-                            <i class="fa fa-tachometer-alt"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" th:href="@{/admin/menu}">
-                            <i class="fa fa-utensils"></i> Menu Items
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" th:href="@{/admin/staff}">
-                            <i class="fa fa-users"></i> Staff
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" th:href="@{/admin/reservations}">
-                            <i class="fa fa-calendar-check"></i> Reservations
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" th:href="@{/admin/messages}">
-                            <i class="fa fa-envelope"></i> Messages
-                        </a>
-                    </li>
-                    <li class="nav-item mt-4">
-                        <a class="nav-link text-white-50" th:href="@{/}">
-                            <i class="fa fa-arrow-left"></i> Back to Site
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-danger" th:href="@{/admin/logout}">
-                            <i class="fa fa-sign-out-alt"></i> Logout
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Main Content -->
-            <div class="col-md-10 p-4">
-                <h2 class="mb-4">Dashboard</h2>
+    <div class="admin-layout">
+        <div th:replace="~{fragments/admin-sidebar :: sidebar('dashboard')}"></div>
+        <div class="admin-content">
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <h2><i class="fa fa-tachometer-alt"></i> Dashboard</h2>
+                </div>
                 <div class="row">
                     <div class="col-md-3 mb-4">
-                        <div class="card bg-primary text-white">
+                        <div class="card stat-card bg-primary text-white">
                             <div class="card-body">
-                                <h5 class="card-title">Menu Items</h5>
+                                <h5 class="card-title"><i class="fa fa-utensils"></i> Menu Items</h5>
                                 <h2 th:text="${menuCount}">0</h2>
                                 <a th:href="@{/admin/menu}" class="text-white">Manage <i
                                         class="fa fa-arrow-right"></i></a>
+                                <div class="stat-icon"><i class="fa fa-utensils"></i></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 mb-4">
-                        <div class="card bg-success text-white">
+                        <div class="card stat-card bg-success text-white">
                             <div class="card-body">
-                                <h5 class="card-title">Staff Members</h5>
+                                <h5 class="card-title"><i class="fa fa-users"></i> Staff Members</h5>
                                 <h2 th:text="${staffCount}">0</h2>
                                 <a th:href="@{/admin/staff}" class="text-white">Manage <i
                                         class="fa fa-arrow-right"></i></a>
+                                <div class="stat-icon"><i class="fa fa-users"></i></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 mb-4">
-                        <div class="card bg-warning text-white">
+                        <div class="card stat-card bg-warning text-white">
                             <div class="card-body">
-                                <h5 class="card-title">Reservations</h5>
+                                <h5 class="card-title"><i class="fa fa-calendar-check"></i> Reservations</h5>
                                 <h2 th:text="${reservationCount}">0</h2>
                                 <a th:href="@{/admin/reservations}" class="text-white">View <i
                                         class="fa fa-arrow-right"></i></a>
+                                <div class="stat-icon"><i class="fa fa-calendar-check"></i></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 mb-4">
-                        <div class="card bg-danger text-white">
+                        <div class="card stat-card bg-danger text-white">
                             <div class="card-body">
-                                <h5 class="card-title">Messages</h5>
+                                <h5 class="card-title"><i class="fa fa-envelope"></i> Messages</h5>
                                 <h2 th:text="${messageCount}">0</h2>
                                 <a th:href="@{/admin/messages}" class="text-white">View <i
                                         class="fa fa-arrow-right"></i></a>
+                                <div class="stat-icon"><i class="fa fa-envelope"></i></div>
                             </div>
                         </div>
                     </div>
@@ -106,5 +64,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<style>
+    .admin-layout {
+        display: flex;
+    }
+</style>
 
 </html>
